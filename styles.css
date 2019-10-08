@@ -93,10 +93,6 @@ li {
   100% {
     transform: rotate(0deg); } }
 
-#section1,
-#section2 {
-  border-bottom: 0.06px gray solid; }
-
 @media (max-width: 650px) {
   #content {
     padding: 0;
