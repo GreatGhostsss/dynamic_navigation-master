@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,600&display=swap");
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
 body {
   display: flex; }
 
@@ -8,15 +14,57 @@ body {
   border-right: 1px red solid;
   font-size: 5vh;
   margin-top: 20px;
-  padding-right: 10px; }
+  padding-right: 20px; }
+  #menu .active {
+    color: black;
+    font-weight: 550;
+    text-decoration: red wavy underline;
+    -webkit-text-decoration: red wavy underline;
+    display: inline-block;
+    animation: lol 800ms ease-in-out forwards; }
+
+[data-hover-text] {
+  background-color: red;
+  color: white;
+  position: relative; }
+
+[data-hover-text]::after {
+  content: attr(data-hover-text);
+  background-color: rgba(255, 248, 220, 0.95);
+  border: 1px goldenrod solid;
+  border-radius: 15px;
+  display: inline-block;
+  position: absolute;
+  font-size: 0.8em;
+  transform: scale(0);
+  transition: transform ease-in-out 100ms;
+  white-space: nowrap;
+  padding: 10px;
+  bottom: 60px;
+  left: 5px;
+  color: black; }
+
+[data-hover-text]:hover::after {
+  transform: scale(1); }
 
 span {
-  margin: 0px 0px;
+  margin: 0;
   padding: 5px; }
+  span h3 {
+    font-weight: 800; }
 
-#manager {
-  transition: transform 650ms ease-in-out; }
+#nav {
+  display: grid;
+  grid-template-columns: 350px;
+  grid-template-rows: repeat(3, 100px); }
+  #nav a {
+    color: black;
+    text-decoration: none; }
 
+#select-css {
+  background-color: cornsilk; }
+
+#manager,
 #menuItems {
   transition: transform 650ms ease-in-out; }
 
@@ -39,34 +87,25 @@ li {
   overflow: scroll;
   width: 100%;
   padding-left: 55px;
-  padding-right: 300px; }
+  padding-right: 200px; }
+  #content :link {
+    color: red;
+    text-decoration-style: wavy;
+    text-decoration: goldenrod wavy underline; }
+  #content a:visited {
+    color: red; }
+  #content a:hover {
+    color: goldenrod;
+    text-decoration: red wavy underline; }
+  #content a:active {
+    color: black; }
   #content p {
     padding: 0;
     margin: 0; }
-  #content h3 {
-    font-weight: 100; }
 
 ::selection {
-  background: goldenrod;
+  background: lemonchiffon;
   color: black; }
-
-:link {
-  color: goldenrod;
-  text-decoration-style: wavy;
-  text-decoration: white wavy underline; }
-
-:active {
-  color: blue; }
-
-:visited {
-  color: red; }
-
-.active {
-  color: black;
-  font-weight: 550;
-  text-decoration: red wavy underline;
-  display: inline-block;
-  animation: lol 800ms ease-in-out forwards; }
 
 @keyframes lol {
   0% {
@@ -78,25 +117,24 @@ li {
   100% {
     transform: rotate(0deg); } }
 
-#section1, #section2 {
-  border-bottom: .06px gray solid; }
-
 @media (max-width: 650px) {
   #content {
-    padding: 0px;
-    margin: 0px; }
+    padding: 0;
+    margin: 0; }
   body {
     display: inline-block; }
   #menu {
-    font-size: 2.6vh;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     display: flex;
-    padding: 10px 0px;
-    margin-bottom: 15px;
+    padding: 10px 0;
+    margin: 0;
     flex-direction: row;
     border-right: none;
     border-bottom: 0.6px red solid;
-    overflow: auto; }
-    #menu span {
-      background-color: mistyrose; }
+    position: sticky;
+    top: 0;
+    height: 100%;
+    width: 100%; }
     #menu #dynamicItem {
       font-size: 3vh; } }
