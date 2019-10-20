@@ -23,6 +23,30 @@ body {
     display: inline-block;
     animation: lol 800ms ease-in-out forwards; }
 
+[data-hover-text] {
+  background-color: red;
+  color: white;
+  position: relative; }
+
+[data-hover-text]::after {
+  content: attr(data-hover-text);
+  background-color: rgba(255, 248, 220, 0.95);
+  border: 1px goldenrod solid;
+  border-radius: 15px;
+  display: inline-block;
+  position: absolute;
+  font-size: 0.8em;
+  transform: scale(0);
+  transition: transform ease-in-out 100ms;
+  white-space: nowrap;
+  padding: 10px;
+  bottom: 60px;
+  left: 5px;
+  color: black; }
+
+[data-hover-text]:hover::after {
+  transform: scale(1); }
+
 span {
   margin: 0;
   padding: 5px; }
@@ -31,8 +55,8 @@ span {
 
 #nav {
   display: grid;
-  grid-template-columns: 170px;
-  grid-template-rows: repeat(3, 55px); }
+  grid-template-columns: 350px;
+  grid-template-rows: repeat(3, 100px); }
   #nav a {
     color: black;
     text-decoration: none; }
