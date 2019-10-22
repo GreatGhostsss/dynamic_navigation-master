@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,600&display=swap');
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+body {
+  display: flex;
+}
+
+#menu {
+  font-family: 'Libre Franklin:300', sans-serif;
+  font-weight: 300;
+  border-right: 1px red solid;
+  font-size: 5vh;
+  margin-top: 20px;
+  padding-right: 20px;
+
+  .active {
+    color: black;
+    font-weight: 550;
+    text-decoration: red wavy underline;
+    -webkit-text-decoration: red wavy underline;
+    display: inline-block;
+    animation: lol 800ms ease-in-out forwards;
+  }
+}
+
+span{
+  white-space: nowrap;
+}
+
+[data-hover-text]{
+  background-color: red;
+  color: white;
+  position: relative;
+}
+
+[data-hover-text]::after{
+  content: attr(data-hover-text);
+  background-color: rgba(cornsilk, .95);
+  border: 1px goldenrod solid;
+  border-radius: 15px;
+  display: inline-block;
+  position: absolute;
+  font-size: 0.8em;
+  transform: scale(0);
+  transition: transform ease-in-out 100ms;
+  white-space: nowrap;
+  padding: 10px;
+  bottom: 60px;
+  left: 5px;
+  color: black;
+}
+
+[data-hover-text]:hover::after{
+  transform: scale(1);
+ }
+
+span {
+  margin: 0;
+  padding: 5px;
+  h3 {
+    font-weight: 800;
+  }
+}
+
+#nav {
+  display: grid;
+  grid-template-columns: 350px;
+  grid-template-rows: repeat(3, 100px);
+  a {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+#select-css {
+  background-color: cornsilk;
+}
+
+#manager,
+#menuItems {
+  transition: transform 650ms ease-in-out;
+}
+
+
+#dynamicItem {
+  visibility: hidden;
+}
+
+li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+#content {
+  font-family: 'Libre Franklin:300', sans-serif;
+  font-weight: 300;
+  margin: 0;
+  padding: 0 15px;
+  line-height: 180%;
+  font-size: 3vh;
+  height: 100vh;
+  scroll-behavior: smooth;
+  overflow: scroll;
+  width: 100%;
+  padding-left: 55px;
+  padding-right: 200px;
+
+  :link {
+    color: red;
+    text-decoration-style: wavy;
+    text-decoration: goldenrod wavy underline;
+  }
+  a:visited {
+    color: red;
+  }
+  a:hover {
+    color: goldenrod;
+    text-decoration: red wavy underline;
+  }
+  a:active {
+    color: black;
+  }
+  p {
+    padding: 0;
+    margin: 0;
+  }
+
+
+}
+
+::selection {
+  background: lemonchiffon;
+  color: black;
+}
+
+@keyframes lol {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-4deg);
+  }
+
+  50% {
+    transform: rotate(3deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+// #section1,
+// #section2 {
+//   border-bottom: 0.06px gray solid;
+// }
+@media (max-width: 650px) {
+  #content {
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    display: inline-block;
+  }
+
+  #menu {
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    display: flex;
+    padding: 10px 0;
+    margin: 0;
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 0.6px red solid;
+    position: sticky;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    #dynamicItem {
+      font-size: 3vh;
+    }
+  }
+}
+//Create media queries to be responsive
